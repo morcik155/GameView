@@ -16,11 +16,20 @@ public class GameView  extends SurfaceView {
     }
     public void drawAll() {
         Canvas canvas = holder.lockCanvas();
-        canvas.drawRGB(200, 70, 43);
+        canvas.drawRGB(200, 70, 43); // меняем цвет фона
         Paint paint = new Paint();
-        paint.setARGB(130, 100, 78, 200);
-        paint.setStrokeWidth(15);
-        canvas.drawLine(0,0,100,100, paint);
+        paint.setARGB(130, 100, 78, 200); // меняем цвет и прозрачность(это параметр а)
+        paint.setStrokeWidth(10); // меняем ширину линии
+        float w = canvas.getWidth();
+        float h = canvas.getHeight();
+        System.out.println(w);
+        System.out.println(h);
+        for (float i = 0f; i<h;i=i+20){
+            canvas.drawLine(0f,i,1080f,i,paint);
+        }
+        for (float i = 0f; i<w;i=i+20){
+            canvas.drawLine(i,0f,i,1977f,paint);
+        }
         holder.unlockCanvasAndPost(canvas);
     }
 
