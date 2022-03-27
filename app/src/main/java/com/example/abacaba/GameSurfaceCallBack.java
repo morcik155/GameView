@@ -13,7 +13,7 @@ public class GameSurfaceCallBack implements SurfaceHolder.Callback {
     }
     @Override
     public void surfaceCreated(@NonNull SurfaceHolder holder) {
-        gameView.drawAll2();
+        new GamePotok(gameView).start();
     }
 
     @Override

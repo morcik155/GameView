@@ -14,6 +14,9 @@ public class DrawableObject {
         this.y = y;
     }
     public void draw(Canvas canvas) {
-        canvas.drawRect(x,y,x+100,y+100, paint);
+        canvas.drawRect(x-50,y-50,x+50,y+50, paint);
+    }
+    public void move(){
+        x+=1;
     }
 }

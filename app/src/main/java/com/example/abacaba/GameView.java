@@ -37,11 +37,18 @@ public class GameView  extends SurfaceView {
 //        }
         holder.unlockCanvasAndPost(canvas);
     }
-    public void drawAll2() {
-        Canvas canvas = holder.lockCanvas();
+    public void drawAll2(Canvas canvas) {
+        canvas.drawRGB(0,0,0);
         for (DrawableObject d: objects){
             d.draw(canvas);
         }
+    }
+    public void update(){
+        Canvas canvas = holder.lockCanvas();
+        for (DrawableObject d: objects) {
+            d.move();
+        }
+        drawAll2(canvas);
         holder.unlockCanvasAndPost(canvas);
     }
 
@@ -49,7 +56,9 @@ public class GameView  extends SurfaceView {
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction()==MotionEvent.ACTION_DOWN){
             objects.add(new DrawableObject(event.getX(), event.getY()));
-            drawAll2();
+            Canvas canvas = holder.lockCanvas();
+            drawAll2(canvas);
+            holder.unlockCanvasAndPost(canvas);
         }
         return true;
     }
