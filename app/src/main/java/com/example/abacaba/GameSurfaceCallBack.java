@@ -12,8 +12,8 @@ public class GameSurfaceCallBack implements SurfaceHolder.Callback {
         this.gameView = gameView;
     }
     @Override
-    public void surfaceCreated(@NonNull SurfaceHolder holder) {
-        gameView.drawAll();
+    public void surfaceCreated(@NonNull SurfaceHolder holder) {2
+        gameView.drawAll2();
     }
 
     @Override
