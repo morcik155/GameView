@@ -55,8 +55,8 @@ public class GameView  extends SurfaceView {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction()==MotionEvent.ACTION_DOWN){
-            objects.add(new DrawableObject(event.getX(), event.getY()));
             Canvas canvas = holder.lockCanvas();
+            objects.add(new DrawableObject(event.getX(), event.getY()));
             drawAll2(canvas);
             holder.unlockCanvasAndPost(canvas);
         }
